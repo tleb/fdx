@@ -5,6 +5,7 @@ module.exports = function(ws) {
     this.waiters   = {}    // the CBs which are waiting for a res to their req
     this.commands  = {}    // known commands
     this.mustClose = false
+    this.timeout   = 5000
 
     this.on    = on
     this.emit  = emit
@@ -41,6 +42,15 @@ function emit(command, data, cb) {
     // we add the cb to the waiters, it will be called on the res with the same
     // token
     this.waiters[res.token] = cb
+
+    if (this.timeout > 0) {
+        setTimeout(() => {
+            if (this.waiters[res.token] != undefined) {
+                cb({ error: 'timeout' })
+                delete this.waiters[res.token]
+            }
+        }, this.timeout)
+    }
 
     // we send the req
     ws.send(JSON.stringify(res))
