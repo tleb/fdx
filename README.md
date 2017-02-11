@@ -14,7 +14,7 @@ I would recommend having `register` and `login` commands which give unique IDs t
 
 ## TODO
 
+- [x] Timeout on response callbacks, because if no response is received, it can't close the ws connection
 - [ ] Proper error handling, not just `console.log`
-- [ ] Timeout on response callbacks, because if no response is received, it can't close the ws connection
 - [ ] Add pubsub
 - [ ] Add a function which handles a ws server, adding connections to a client obj, give id to each connection
