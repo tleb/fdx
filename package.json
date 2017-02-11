@@ -1,0 +1,22 @@
+{
+  "name": "fdx",
+  "description": "Full-duplex commands through a websocket connection.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tleb/fdx.git"
+  },
+  "keywords": [
+    "websocket",
+    "rpc",
+    "full-duplex",
+    "bidirectional"
+  ],
+  "author": "tleb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tleb/fdx/issues"
+  },
+  "homepage": "https://github.com/tleb/fdx"
+}
