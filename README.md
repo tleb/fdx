@@ -1,4 +1,4 @@
-# fdx-cmd
+# fdx
 
 Full-duplex commands through a websocket connection. Basically, it's an RPC where both sides can send commands to the other one.
 
