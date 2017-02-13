@@ -1,6 +1,6 @@
 // you can use uws for better performance
 const WSServer = require('ws').Server
-const fdx      = require('./../index')
+const fdx      = require('./../../index')
 const wss      = new WSServer({ host: 'localhost', port: 5000 })
 var conns      = []
 
