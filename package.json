@@ -1,7 +1,7 @@
 {
   "name": "fdx",
   "description": "Full-duplex commands through a websocket connection.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/tleb/fdx/issues"
   },
-  "homepage": "https://github.com/tleb/fdx"
+  "homepage": "https://github.com/tleb/fdx",
+  "dependencies": {
+    "randomatic": "^1.1.6",
+    "uws": "^0.14.1",
+    "ws": "^2.3.1"
+  }
 }

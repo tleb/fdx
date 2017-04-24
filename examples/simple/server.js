@@ -1,30 +1,8 @@
-// you can use uws for better performance
-const WSServer = require('ws').Server
-const fdx      = require('./../../index')
-const wss      = new WSServer({ host: 'localhost', port: 5000 })
-var conns      = []
+const server = require('./../../index').Server({ port: 5000 }, console.log)
 
-
-wss.on('connection', (ws) => {
-    c = fdx(ws)
-    // add the connection to conns
-    conns.push(c)
-
-    // remove the connection from conns on close
-    ws.on('close', () => {
-        let index = conns.indexOf(c)
-        if (index > -1) conns.splice(index, 1)
-    })
-
-    // define a command we can answer to
-    c.on('print', (data, cb) => {
-        // messages are identified by a token, we can send a command while
-        // the connection is waiting for a response without any problem
-        c.emit('print', {msg: 'yes'}, (data) => {
-            console.log('message arrived without any issue')
-        })
-
-        console.log(data)
-        cb({ msg: 'done, bro!' })
-    })
+server.on('ping', (data, cb, ws, noAnswer) => {
+    console.log('received ping => sending pong')
+    cb() // you can pass data to send
+         // if noAnswer is true, the sender doesn't want a response and cb
+         // wont do anything
 })
